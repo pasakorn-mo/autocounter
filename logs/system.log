@@ -1,0 +1,125 @@
+2026-01-25 12:50:44,576 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-25 12:50:44,588 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-25 12:50:44,590 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-25 12:50:44,591 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-25 12:55:12,951 [WARNING] MainSupervisor: 🛑 Shutdown signal received...
+2026-01-25 12:55:13,626 [INFO] MainSupervisor: Cleaning up...
+2026-01-25 12:55:14,474 [INFO] MainSupervisor: 👋 System Shutdown.
+2026-01-25 12:57:44,080 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-25 12:57:44,087 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-25 12:57:44,089 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-25 12:57:44,093 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-25 13:28:28,185 [WARNING] MainSupervisor: 🛑 Shutdown signal received...
+2026-01-25 13:28:28,324 [INFO] MainSupervisor: Cleaning up...
+2026-01-25 13:28:29,691 [INFO] MainSupervisor: 👋 System Shutdown.
+2026-01-25 13:34:51,369 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-25 13:34:51,374 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-25 13:34:51,376 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-25 13:34:51,378 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-25 13:43:46,283 [WARNING] MainSupervisor: 🛑 Shutdown signal received...
+2026-01-25 13:43:46,439 [INFO] MainSupervisor: Cleaning up...
+2026-01-25 13:43:47,768 [INFO] MainSupervisor: 👋 System Shutdown.
+2026-01-25 13:43:51,678 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-25 13:43:51,684 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-25 13:43:51,687 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-25 13:43:51,688 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-25 13:44:49,885 [WARNING] MainSupervisor: 🛑 Shutdown signal received...
+2026-01-25 13:44:50,696 [INFO] MainSupervisor: Cleaning up...
+2026-01-25 13:44:52,593 [INFO] MainSupervisor: 👋 System Shutdown.
+2026-01-25 13:45:31,423 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-25 13:45:31,429 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-25 13:45:31,431 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-25 13:45:31,432 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-25 13:47:06,202 [WARNING] MainSupervisor: 🛑 Shutdown signal received...
+2026-01-25 13:47:06,444 [INFO] MainSupervisor: Cleaning up...
+2026-01-25 13:47:12,450 [INFO] MainSupervisor: 👋 System Shutdown.
+2026-01-25 13:49:08,333 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-25 13:49:08,338 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-25 13:49:08,340 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-25 13:49:08,343 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-25 13:50:20,532 [WARNING] MainSupervisor: 🛑 Shutdown signal received...
+2026-01-25 13:50:21,352 [INFO] MainSupervisor: Cleaning up...
+2026-01-25 13:50:22,030 [INFO] MainSupervisor: 👋 System Shutdown.
+2026-01-25 14:00:54,795 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-25 14:00:54,800 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-25 14:00:54,802 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-25 14:00:54,804 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-25 14:01:55,291 [WARNING] MainSupervisor: 🛑 Shutdown signal received...
+2026-01-25 14:01:55,812 [INFO] MainSupervisor: Cleaning up...
+2026-01-25 14:01:56,821 [INFO] MainSupervisor: 👋 System Shutdown.
+2026-01-25 14:02:00,956 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-25 14:02:00,963 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-25 14:02:00,966 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-25 14:02:00,968 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-25 20:36:16,672 [WARNING] MainSupervisor: 🛑 Shutdown signal received...
+2026-01-25 20:36:16,679 [INFO] MainSupervisor: Cleaning up...
+2026-01-25 20:36:18,216 [INFO] MainSupervisor: 👋 System Shutdown.
+2026-01-25 20:37:46,884 [INFO] MainSupervisor: ==========================================
+2026-01-25 20:37:46,884 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-25 20:37:46,884 [INFO] MainSupervisor: ==========================================
+2026-01-25 20:37:46,888 [INFO] MainSupervisor: ✅ DB Worker Started
+2026-01-25 20:37:46,890 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-25 20:37:46,897 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-25 20:37:46,900 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-25 21:00:33,570 [WARNING] MainSupervisor: 
+🛑 Shutdown signal received! Terminating processes...
+2026-01-25 21:00:35,002 [INFO] MainSupervisor: Cleaning up resources...
+2026-01-25 21:00:35,002 [INFO] MainSupervisor: 👋 System Shutdown Complete.
+2026-01-25 21:00:39,085 [INFO] MainSupervisor: ==========================================
+2026-01-25 21:00:39,085 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-25 21:00:39,085 [INFO] MainSupervisor: ==========================================
+2026-01-25 21:00:39,091 [INFO] MainSupervisor: ✅ DB Worker Started
+2026-01-25 21:00:39,093 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-25 21:00:39,095 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-25 21:00:39,097 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-25 21:24:10,997 [WARNING] MainSupervisor: 
+🛑 Shutdown signal received! Terminating processes...
+2026-01-25 21:24:11,229 [INFO] MainSupervisor: Cleaning up resources...
+2026-01-25 21:24:11,987 [INFO] MainSupervisor: 👋 System Shutdown Complete.
+2026-01-25 21:24:16,219 [INFO] MainSupervisor: ==========================================
+2026-01-25 21:24:16,219 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-25 21:24:16,219 [INFO] MainSupervisor: ==========================================
+2026-01-25 21:24:16,225 [INFO] MainSupervisor: ✅ DB Worker Started
+2026-01-25 21:24:16,226 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-25 21:24:16,231 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-25 21:24:16,237 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-25 22:59:12,372 [WARNING] MainSupervisor: 
+🛑 Shutdown signal received! Terminating processes...
+2026-01-25 22:59:12,659 [INFO] MainSupervisor: Cleaning up resources...
+2026-01-25 22:59:13,298 [INFO] MainSupervisor: 👋 System Shutdown Complete.
+2026-01-25 22:59:17,545 [INFO] MainSupervisor: ==========================================
+2026-01-25 22:59:17,545 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-25 22:59:17,545 [INFO] MainSupervisor: ==========================================
+2026-01-25 22:59:17,550 [INFO] MainSupervisor: ✅ DB Worker Started
+2026-01-25 22:59:17,551 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-25 22:59:17,554 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-25 22:59:17,556 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-28 08:07:50,235 [ERROR] MainSupervisor: ⚠️ Agent Died: CameraAgent-4. (Restart logic not implemented yet)
+2026-01-28 08:08:08,236 [ERROR] MainSupervisor: ⚠️ Agent Died: CameraAgent-2. (Restart logic not implemented yet)
+2026-01-28 08:08:10,237 [ERROR] MainSupervisor: ⚠️ Agent Died: CameraAgent-3. (Restart logic not implemented yet)
+2026-01-28 08:08:24,641 [WARNING] MainSupervisor: 
+🛑 Shutdown signal received! Terminating processes...
+2026-01-28 08:08:26,239 [INFO] MainSupervisor: Cleaning up resources...
+2026-01-28 08:08:26,240 [INFO] MainSupervisor: 👋 System Shutdown Complete.
+2026-01-28 17:39:09,695 [INFO] MainSupervisor: ==========================================
+2026-01-28 17:39:09,695 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-28 17:39:09,695 [INFO] MainSupervisor: ==========================================
+2026-01-28 17:39:09,705 [INFO] MainSupervisor: ✅ DB Worker Started
+2026-01-28 17:39:09,707 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-28 17:39:09,710 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-28 17:39:09,711 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-28 17:52:38,478 [WARNING] MainSupervisor: 
+🛑 Shutdown signal received! Terminating processes...
+2026-01-28 17:52:39,772 [INFO] MainSupervisor: Cleaning up resources...
+2026-01-28 17:52:39,773 [INFO] MainSupervisor: 👋 System Shutdown Complete.
+2026-01-28 17:52:49,605 [INFO] MainSupervisor: ==========================================
+2026-01-28 17:52:49,605 [INFO] MainSupervisor: === 🚀 Starting AutoCounter System V5 ===
+2026-01-28 17:52:49,606 [INFO] MainSupervisor: ==========================================
+2026-01-28 17:52:49,611 [INFO] MainSupervisor: ✅ DB Worker Started
+2026-01-28 17:52:49,612 [INFO] MainSupervisor: ✅ Launched Agent: CP_CAM_01
+2026-01-28 17:52:49,615 [INFO] MainSupervisor: ✅ Launched Agent: KPP2_CAM_01
+2026-01-28 17:52:49,617 [INFO] MainSupervisor: ✅ Launched Agent: BS1_CAM_01
+2026-01-28 17:55:50,590 [WARNING] MainSupervisor: 
+🛑 Shutdown signal received! Terminating processes...
+2026-01-28 17:55:51,632 [INFO] MainSupervisor: Cleaning up resources...
+2026-01-28 17:55:51,633 [INFO] MainSupervisor: 👋 System Shutdown Complete.

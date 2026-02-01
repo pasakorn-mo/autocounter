@@ -1,0 +1,108 @@
+cameras:
+- plaza: CP
+  id: CP_CAM_01
+  lanes:
+  - id: Lane_07
+    line1:
+    - - 456
+      - 260
+    - - 554
+      - 257
+    line2:
+    - - 492
+      - 449
+    - - 628
+      - 418
+  - id: Lane_08
+    line1:
+    - - 427
+      - 271
+    - - 303
+      - 258
+    line2:
+    - - 266
+      - 457
+    - - 470
+      - 439
+  - id: Lane_09
+    line1:
+    - - 135
+      - 242
+    - - 267
+      - 269
+    line2:
+    - - 233
+      - 466
+    - - 28
+      - 446
+  source: rtsp://pi:PiPassword@10.10.71.82:554/cam/realmonitor?channel=1&subtype=1
+- plaza: KPP2
+  id: KPP2_CAM_01
+  lanes:
+  - id: Lane_04
+    line1:
+    - - 401
+      - 251
+    - - 540
+      - 251
+    line2:
+    - - 397
+      - 439
+    - - 614
+      - 411
+  - id: Lane_05
+    line1:
+    - - 232
+      - 253
+    - - 378
+      - 270
+    line2:
+    - - 365
+      - 463
+    - - 133
+      - 424
+  source: rtsp://pi:PiPassword@10.10.78.82:554/cam/realmonitor?channel=1&subtype=1
+- plaza: BS1
+  id: BS1_CAM_01
+  lanes:
+  - id: Lane_05
+    line1:
+    - - 386
+      - 208
+    - - 239
+      - 231
+    line2:
+    - - 258
+      - 395
+    - - 459
+      - 349
+  - id: Lane_06
+    line1:
+    - - 220
+      - 208
+    - - 60
+      - 216
+    line2:
+    - - 25
+      - 365
+    - - 221
+      - 358
+  source: rtsp://pi:PiPassword@10.10.79.82:554/cam/realmonitor?channel=1&subtype=1
+model:
+  classes:
+  - 0
+  conf: 0.30
+  path: models/best26_trained_cp200img_cp150img_t00-10-193img.pt
+  show_boxes: true
+  tracker: bytetrack.yaml
+
+# Processing & Inference Config
+processing:
+  dist_between_lines_m: 5.0    # ระยะห่างจริงระหว่างเส้น 1 และ 2 (เมตร)
+  save_edge_cases: true        # เปิด/ปิด การบันทึกภาพที่ไม่มั่นใจ
+  edge_conf_range: [0.20, 0.40] # ช่วง Confidence ที่จะบันทึก Edge Case
+
+system:
+  headless: false              # true = ไม่โชว์หน้าจอ
+  log_level: "INFO"
+  log_file: "logs/system.log"
