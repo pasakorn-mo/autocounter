@@ -36,6 +36,32 @@ cameras:
     - - 28
       - 446
   source: rtsp://pi:PiPassword@10.10.71.82:554/cam/realmonitor?channel=1&subtype=1
+- plaza: CP
+  id: CP_Lane_4-5
+  lanes:
+  - id: Lane_04
+    line1:
+    - - 342
+      - 166
+    - - 468
+      - 171
+    line2:
+    - - 333
+      - 367
+    - - 546
+      - 365
+  - id: Lane_05
+    line1:
+    - - 337
+      - 198
+    - - 206
+      - 190
+    line2:
+    - - 323
+      - 404
+    - - 118
+      - 374
+  source: rtsp://counter:counter123@10.10.71.84:554/cam/realmonitor?channel=1&subtype=1
 - plaza: KPP2
   id: KPP2_CAM_01
   lanes:
