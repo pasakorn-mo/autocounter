@@ -22,14 +22,10 @@ class CounterEngine:
         self.tracks = {}
         self.q = result_queue
 
+        self.health_monitor = CameraHealth(self.cam_id, self.plaza)
+
     def run(self):
         cap = cv2.VideoCapture(self.source)
-        health = CameraHealth(self.cam_id, self.plaza)
-
-        # ทุก frame
-        health_event = health.tick()
-        if health_event:
-            self.q.put(health_event)
 
         while cap.isOpened():
             ret, frame = cap.read()
@@ -41,6 +37,10 @@ class CounterEngine:
                 continue
 
             ts = time.time()
+
+            health_event = self.health_monitor.tick()
+            if health_event:
+                self.q.put(health_event)
 
             results = self.model.track(
                 frame,
