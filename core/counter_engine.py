@@ -1,6 +1,7 @@
 import cv2
 import time
 from ultralytics import YOLO
+from core.health_monitor import CameraHealth
 from core.track_state import TrackState
 from core.geometry import crossed_line
 from core.utils import draw_lanes, draw_tracks
@@ -9,6 +10,7 @@ class CounterEngine:
     def __init__(self, cam_cfg, system_cfg, result_queue):
         self.cam_id = cam_cfg["cam_id"]
         self.source = cam_cfg["source"]
+        self.plaza = cam_cfg.get("plaza", [])
         self.lanes = cam_cfg.get("lanes", [])
 
         self.model = YOLO(system_cfg["model"]["path"])
@@ -16,12 +18,18 @@ class CounterEngine:
         self.iou = system_cfg["model"]["iou"]
         self.ttl = system_cfg["processing"]["track_ttl_sec"]
 
-        self.preview = system_cfg.get("processing", {}).get("preview", True)
+        self.preview = system_cfg.get("processing", {}).get("preview", False)
         self.tracks = {}
         self.q = result_queue
 
     def run(self):
         cap = cv2.VideoCapture(self.source)
+        health = CameraHealth(self.cam_id, self.plaza)
+
+        # ทุก frame
+        health_event = health.tick()
+        if health_event:
+            self.q.put(health_event)
 
         while cap.isOpened():
             ret, frame = cap.read()
@@ -96,7 +104,7 @@ class CounterEngine:
                     if crossed_line(lane["line1"], prev_pos, cur_pos):
                         st.crossed_l1_ts = ts
                         st.lane_id = lid
-                        print(f"[L1] cam={self.cam_id} lane={lid} obj={oid}")
+                        print(f"[L1] cam={self.plaza} lane={lid} obj={oid}")
                         break
 
                 # ---- LINE 2 (ต้องหลัง L1) ----
@@ -107,6 +115,14 @@ class CounterEngine:
                 ):
                     st.crossed_l2_ts = ts
                     st.finalized = True
+
+                    event = {
+                        "event_ts": ts,           # ts_line2
+                        "plaza": self.plaza,
+                        "lane_id": lid
+                    }
+
+                    self.q.put(event)
 
                     print(
                         f"[FINAL] cam={self.cam_id} "

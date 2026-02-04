@@ -1,7 +1,7 @@
 import yaml
 import multiprocessing as mp
 from core.counter_engine import CounterEngine
-from workers.result_worker import ResultWorker
+from workers.result_worker import result_worker
 
 def main():
     mp.set_start_method("spawn", force=True)
@@ -10,9 +10,12 @@ def main():
 
     result_queue = mp.Queue(1000)
 
-    # (optional) DB worker
-    result_worker = ResultWorker(result_queue)
-    result_worker.start()
+    db_proc = mp.Process(
+        target=result_worker,
+        args=(result_queue,),
+        daemon=True
+    )
+    db_proc.start()
 
     processes = []
 
