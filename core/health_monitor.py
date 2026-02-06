@@ -7,6 +7,7 @@ class CameraHealth:
         self.last_frame_ts = None
         self.frames = 0
         self.last_report = time.time()
+        self.last_status = "OK"
 
     def tick(self):
         now = time.time()
@@ -17,11 +18,16 @@ class CameraHealth:
             fps = self.frames / (now - self.last_report)
             self.frames = 0
             self.last_report = now
+
+            status = "OK"
+            if self.last_frame_ts and now - self.last_frame_ts > 5:
+                status = "NO_FRAME"   # ➕ เพิ่ม
+
             return {
                 "ts": now,
                 "cam_id": self.cam_id,
                 "plaza": self.plaza,
-                "status": "OK",
+                "status": status,
                 "fps": round(fps, 2),
                 "last_frame_ts": self.last_frame_ts
             }

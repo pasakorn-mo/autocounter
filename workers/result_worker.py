@@ -1,3 +1,4 @@
+# workers/result_worker.py
 import sqlite3
 import time
 
@@ -5,7 +6,6 @@ DB_PATH = "data/autocounter.db"
 
 
 def init_db(conn):
-    # -------- vehicle events --------
     conn.execute("""
     CREATE TABLE IF NOT EXISTS vehicle_events (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -20,7 +20,6 @@ def init_db(conn):
     ON vehicle_events (plaza, lane_id, event_ts)
     """)
 
-    # -------- camera health --------
     conn.execute("""
     CREATE TABLE IF NOT EXISTS camera_health (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -50,8 +49,13 @@ def result_worker(result_queue):
 
     print("[ResultWorker] SQLite ready")
 
+    pending = 0
+    last_commit = time.time()
+
     while True:
         event = result_queue.get()
+
+        # ---------- SHUTDOWN ----------
         if event is None:
             break
 
@@ -70,6 +74,7 @@ def result_worker(result_queue):
                         event["lane_id"]
                     )
                 )
+                pending += 1
 
             # ---------- CAMERA HEALTH ----------
             elif "cam_id" in event:
@@ -88,12 +93,24 @@ def result_worker(result_queue):
                         event.get("last_frame_ts")
                     )
                 )
+                pending += 1
 
-            conn.commit()
+            # ---------- COMMIT POLICY ----------
+            now = time.time()
+            if pending >= 20 or now - last_commit >= 2:
+                conn.commit()
+                pending = 0
+                last_commit = now
 
-        except Exception as e:
-            print("[ResultWorker ERROR]", e)
-            time.sleep(0.2)
+        except Exception:
+            # ไม่ print เพื่อลด block
+            time.sleep(0.1)
+
+    # ---------- FINAL COMMIT ----------
+    try:
+        conn.commit()
+    except:
+        pass
 
     conn.close()
     print("[ResultWorker] stopped")

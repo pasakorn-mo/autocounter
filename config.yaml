@@ -1,51 +1,39 @@
 cameras:
-- cam_id: CP_Lane_7-8-9
+- cam_id: CAM01_LANE_3-4
   plaza: CP
   lanes:
-  - id: Lane_07
+  - id: Lane_03
     line1:
-    - - 456
-      - 260
-    - - 554
-      - 257
+    - - 298
+      - 124
+    - - 475
+      - 143
     line2:
-    - - 492
-      - 449
-    - - 628
-      - 418
-  - id: Lane_08
+    - - 387
+      - 377
+    - - 606
+      - 338
+  - id: Lane_04-Spare
     line1:
-    - - 427
-      - 271
-    - - 303
-      - 258
+    - - 38
+      - 303
+    - - 216
+      - 324
     line2:
-    - - 266
-      - 457
-    - - 470
-      - 439
-  - id: Lane_09
-    line1:
-    - - 135
-      - 242
-    - - 267
-      - 269
-    line2:
-    - - 233
-      - 466
-    - - 28
-      - 446
-  source: rtsp://pi:PiPassword@10.10.71.82:554/cam/realmonitor?channel=1&subtype=1
-  cameras:
-- cam_id: CP_Lane_4-5
-  plaza: CP  
+    - - 14
+      - 384
+    - - 210
+      - 413
+  source: rtsp://counter:counter123@10.10.71.83:554/cam/realmonitor?channel=1&subtype=1
+- cam_id: CAM02_LANE_4-5
+  plaza: CP
   lanes:
   - id: Lane_04
     line1:
     - - 342
-      - 166
-    - - 468
-      - 171
+      - 249
+    - - 501
+      - 254
     line2:
     - - 333
       - 367
@@ -53,183 +41,92 @@ cameras:
       - 365
   - id: Lane_05
     line1:
-    - - 337
-      - 198
-    - - 206
-      - 190
+    - - 160
+      - 303
+    - - 312
+      - 322
     line2:
-    - - 323
-      - 404
-    - - 118
-      - 374
+    - - 126
+      - 390
+    - - 304
+      - 417
   source: rtsp://counter:counter123@10.10.71.84:554/cam/realmonitor?channel=1&subtype=1
-- cam_id: KPP2_Lane_4-5
-  plaza: KPP2
-  lanes:
-  - id: Lane_04
-    line1:
-    - - 401
-      - 251
-    - - 540
-      - 251
-    line2:
-    - - 397
-      - 439
-    - - 614
-      - 411
-  - id: Lane_05
-    line1:
-    - - 232
-      - 253
-    - - 378
-      - 270
-    line2:
-    - - 365
-      - 463
-    - - 133
-      - 424
-  source: rtsp://pi:PiPassword@10.10.78.82:554/cam/realmonitor?channel=1&subtype=1
-- cam_id: TC_Lane_5-6
-  plaza: TC
-  lanes:
-  - id: Lane_05
-    line1:
-    - - 386
-      - 208
-    - - 239
-      - 231
-    line2:
-    - - 258
-      - 395
-    - - 459
-      - 349
-  - id: Lane_06
-    line1:
-    - - 220
-      - 208
-    - - 60
-      - 216
-    line2:
-    - - 25
-      - 365
-    - - 221
-      - 358
-  source: rtsp://counter:counter123@10.10.72.82:554/cam/realmonitor?channel=1&subtype=1
-- cam_id: CP_Lane_3-4
+- cam_id: CAM03_LANE_6-7
   plaza: CP
   lanes:
-  - id: Lane_03
-    line1:
-    - - 386
-      - 208
-    - - 239
-      - 231
-    line2:
-    - - 258
-      - 395
-    - - 459
-      - 349
-  - id: Lane_04
-    line1:
-    - - 220
-      - 208
-    - - 60
-      - 216
-    line2:
-    - - 25
-      - 365
-    - - 221
-      - 358
-  source: rtsp://counter:counter123@10.10.71.83:554/cam/realmonitor?channel=1&subtype=1
-- cam_id: BS1_Lane_5-6
-  plaza: BS1
-  lanes:
-  - id: Lane_05
-    line1:
-    - - 386
-      - 208
-    - - 239
-      - 231
-    line2:
-    - - 258
-      - 395
-    - - 459
-      - 349
   - id: Lane_06
     line1:
-    - - 220
-      - 208
-    - - 60
-      - 216
+    - - 339
+      - 227
+    - - 472
+      - 229
     line2:
-    - - 25
-      - 365
-    - - 221
-      - 358
-  source: rtsp://pi:PiPassword@10.10.79.82:554/cam/realmonitor?channel=1&subtype=1
-- cam_id: BC_Lane_5-6
-  plaza: BC
+    - - 337
+      - 314
+    - - 501
+      - 311
+  - id: Lane_07
+    line1:
+    - - 171
+      - 242
+    - - 319
+      - 248
+    line2:
+    - - 122
+      - 368
+    - - 306
+      - 387
+  source: rtsp://counter:counter123@10.10.71.85:554/cam/realmonitor?channel=1&subtype=1
+- cam_id: CAM04_LANE_8-9
+  plaza: CP
   lanes:
-  - id: Lane_05
+  - id: Lane_08
     line1:
-    - - 386
+    - - 337
       - 208
-    - - 239
-      - 231
+    - - 467
+      - 210
     line2:
-    - - 258
-      - 395
-    - - 459
-      - 349
-  - id: Lane_06
+    - - 334
+      - 319
+    - - 497
+      - 313
+  - id: Lane_09
     line1:
-    - - 220
-      - 208
-    - - 60
-      - 216
+    - - 164
+      - 291
+    - - 317
+      - 297
     line2:
-    - - 25
-      - 365
-    - - 221
-      - 358
-  source: rtsp://counter:counter123@10.10.73.82:554/cam/realmonitor?channel=1&subtype=1
-
-- cam_id: BR_Lane_5-6
-  plaza: BR
+    - - 134
+      - 382
+    - - 312
+      - 399
+  source: rtsp://counter:counter123@10.10.71.86:554/cam/realmonitor?channel=1&subtype=1
+- cam_id: CAM05_LANE_9
+  plaza: CP
   lanes:
-  - id: Lane_05
+  - id: Lane_09-Test
     line1:
-    - - 386
-      - 208
-    - - 239
-      - 231
+    - - 170
+      - 141
+    - - 313
+      - 141
     line2:
-    - - 258
-      - 395
-    - - 459
-      - 349
-  - id: Lane_06
-    line1:
-    - - 220
-      - 208
-    - - 60
-      - 216
-    line2:
-    - - 25
-      - 365
-    - - 221
-      - 358
-  source: rtsp://counter:counter123@10.10.74.82:554/cam/realmonitor?channel=1&subtype=1
-
+    - - 121
+      - 272
+    - - 361
+      - 271
+  source: rtsp://counter:counter123@10.10.71.87:554/cam/realmonitor?channel=1&subtype=1
 system:
   log_level: INFO
-
 model:
   path: models/best26_trained_cp200img_cp150img_t00-10-193img.pt
   conf: 0.4
   iou: 0.5
-
 processing:
   track_ttl_sec: 2.0
   preview: true
   line_distance_m: 5.0
+tracker:
+  type: bytetrack

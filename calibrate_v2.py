@@ -7,7 +7,7 @@ from datetime import datetime
 import numpy as np
 
 # ---------------- utils ----------------
-def backup_settings(path="config/settings.yaml"):
+def backup_settings(path="config.yaml"):
     if os.path.exists(path):
         dst = f"{path}.bak.{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         shutil.copy(path, dst)
@@ -60,7 +60,7 @@ parser.add_argument("--cam", type=int, default=0)
 parser.add_argument("--lane", type=int, default=0)
 args = parser.parse_args()
 
-with open("config/settings.yaml", "r") as f:
+with open("config.yaml", "r") as f:
     cfg = yaml.safe_load(f)
 
 c_idx, l_idx = args.cam, args.lane
@@ -140,7 +140,7 @@ while True:
             base_frame = np.zeros((720,1280,3), dtype=np.uint8)
     elif key == ord('s'):
         backup_settings()
-        with open("config/settings.yaml", "w") as f:
+        with open("config.yaml", "w") as f:
             yaml.dump(cfg, f, sort_keys=False)
         print("[INFO] Settings saved")
     elif key == ord('q'):

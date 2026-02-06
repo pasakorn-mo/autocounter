@@ -6,6 +6,7 @@ class TrackState:
     object_id: int
     last_pos: Tuple[int, int]
     last_ts: float
+    birth_ts: float 
 
     lane_id: Optional[str] = None
 
