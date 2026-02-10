@@ -111,7 +111,8 @@ class CameraAgent(mp.Process):
                 continue
 
             t0 = time.time()
-            processed_frame = self.apply_lighting_filters(frame)
+            #processed_frame = self.apply_lighting_filters(frame)
+            processed_frame = frame
             t1 = time.time()
             tracker_cfg = self.model_cfg.get('tracker')
             if tracker_cfg:
