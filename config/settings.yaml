@@ -1,0 +1,138 @@
+cameras:
+- id: CAM01_LANE_3-4
+  plaza: CP
+  lanes:
+  - id: Lane_03
+    line1:
+    - - 289
+      - 94
+    - - 445
+      - 115
+    line2:
+    - - 297
+      - 125
+    - - 470
+      - 143
+  - id: Lane_04-Spare
+    line1:
+    - - 27
+      - 341
+    - - 206
+      - 361
+    line2:
+    - - 15
+      - 389
+    - - 204
+      - 414
+  source: rtsp://counter:counter123@10.10.71.83:554/cam/realmonitor?channel=1&subtype=1
+- id: CAM02_LANE_4-5
+  plaza: CP
+  lanes:
+  - id: Lane_04
+    line1:
+    - - 349
+      - 323
+    - - 526
+      - 326
+    line2:
+    - - 343
+      - 378
+    - - 534
+      - 378
+  - id: Lane_05
+    line1:
+    - - 142
+      - 339
+    - - 326
+      - 364
+    line2:
+    - - 125
+      - 384
+    - - 309
+      - 412
+  source: rtsp://counter:counter123@10.10.71.84:554/cam/realmonitor?channel=1&subtype=1
+- id: CAM03_LANE_6-7
+  plaza: CP
+  lanes:
+  - id: Lane_06
+    line1:
+    - - 327
+      - 267
+    - - 491
+      - 266
+    line2:
+    - - 325
+      - 334
+    - - 509
+      - 327
+  - id: Lane_07
+    line1:
+    - - 155
+      - 286
+    - - 326
+      - 297
+    line2:
+    - - 121
+      - 347
+    - - 315
+      - 365
+  source: rtsp://counter:counter123@10.10.71.85:554/cam/realmonitor?channel=1&subtype=1
+- id: CAM04_LANE_8-9
+  plaza: CP
+  lanes:
+  - id: Lane_08
+    line1:
+    - - 337
+      - 234
+    - - 476
+      - 236
+    line2:
+    - - 334
+      - 319
+    - - 497
+      - 313
+  - id: Lane_09
+    line1:
+    - - 164
+      - 291
+    - - 317
+      - 297
+    line2:
+    - - 134
+      - 382
+    - - 312
+      - 399
+  source: rtsp://counter:counter123@10.10.71.86:554/cam/realmonitor?channel=1&subtype=1
+- id: CAM05_LANE_9
+  plaza: CP
+  lanes:
+  - id: Lane_09-Test
+    line1:
+    - - 136
+      - 184
+    - - 363
+      - 180
+    line2:
+    - - 91
+      - 319
+    - - 410
+      - 313
+  source: rtsp://counter:counter123@10.10.71.87:554/cam/realmonitor?channel=1&subtype=1
+model:
+  classes:
+  - 0
+  conf: 0.3
+  path: models/best26_trained_cp200img_cp150img_t00-10-193img_cpmtc201img.pt
+  show_boxes: true
+  tracker: config/bytetrack_occlusion.yaml
+processing:
+  dist_between_lines_m: 5.0
+  save_edge_cases: true
+  frame_skip: 0
+  edge_conf_range:
+  - 0.2
+  - 0.4
+system:
+  headless: false
+  log_level: INFO
+  log_file: logs/system.log
