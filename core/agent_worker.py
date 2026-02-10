@@ -149,8 +149,17 @@ class CameraAgent(mp.Process):
                 flash_status[(l_id, line_num)] = now + 0.5
 
             for l_id, conf, speed, obj_id in count_events:
-                safe_put(("TX", self.cfg['plaza'], l_id, frame.copy(), speed))
-                
+
+                tx_data = ["TX", self.cfg['plaza'], l_id, None, speed]
+                # ใน CameraAgent
+                if self.proc_cfg.get('send_images', False):
+                    ret, buffer = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 80])
+                    payload_frame = buffer.tobytes() if ret else None
+                else:
+                    payload_frame = None
+
+                safe_put(("TX", self.cfg['plaza'], l_id, payload_frame, speed))
+
                 # --- [แก้ไข] ตัด Timestamp และ tag [INFO] ที่ทำเองออก ---
                 # ให้ Logger จัดการ Time และ Level เอง
                 log_msg = (

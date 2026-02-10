@@ -52,21 +52,40 @@ class AutoCounterDB:
     def log_tx(self, gate, lane, frame, speed=0):
         try:
             now = datetime.now()
-            # Save Image
             timestamp_str = now.strftime('%Y%m%d_%H%M%S_%f')
-            img_path = f"snapshots/{gate}_{lane}_{timestamp_str}.jpg"
-            
-            # Import cv2 here to avoid circular dependencies or heavy loads if not needed
-            import cv2
-            cv2.imwrite(img_path, frame)
+            img_path = None # เริ่มต้นด้วย None (กรณีปิดภาพ)
 
+            # 1. จัดการเรื่องการบันทึกภาพ
+            if frame is not None:
+                import os
+                # สร้างโฟลเดอร์ถ้ายังไม่มี
+                os.makedirs("snapshots", exist_ok=True)
+                
+                img_path = f"snapshots/{gate}_{lane}_{timestamp_str}.jpg"
+
+                if isinstance(frame, bytes):
+                    # --- กรณีส่งเป็น JPEG Bytes (แนะนำ) ---
+                    # เขียนไฟล์ binary ตรงๆ ไม่ผ่าน OpenCV ลด CPU ได้มหาศาล
+                    with open(img_path, "wb") as f:
+                        f.write(frame)
+                else:
+                    # --- กรณีส่งเป็น NumPy Array (ภาพดิบ) ---
+                    import cv2
+                    # เช็คอีกทีว่าภาพไม่ว่าง (กันเหนียว)
+                    if frame.size > 0:
+                        cv2.imwrite(img_path, frame)
+                    else:
+                        img_path = None
+
+            # 2. บันทึกลงฐานข้อมูล
             with self._get_connection() as conn:
                 conn.execute("""
                     INSERT INTO transactions (gate, lane, timestamp, image_path, speed) 
                     VALUES (?, ?, ?, ?, ?)
                 """, (gate, lane, now.isoformat(), img_path, speed))
-            # ไม่ต้อง log info ถี่ๆ ตรงนี้ เดี๋ยวไฟล์ log บวม ให้ไป log ที่ Worker แทน
+                
         except Exception as e:
+            # ตรงนี้จะดักจับทั้ง Error จาก OpenCV และ Database
             logging.error(f"⚠️ Save TX Error: {e}")
 
     def update_status(self, cam_id, status):

@@ -36,10 +36,19 @@ class ResultWorker(mp.Process):
                 cmd = item[0]
                 if cmd == "__STOP__":
                     break
+                # ใน ResultWorker.run ส่วนที่จัดการ "TX"
                 if cmd == "TX":
-                    # Unpack: Header, Plaza, Lane, Image, Speed
+                    # Unpack: Header, Plaza, Lane, frame (อาจเป็น bytes, ndarray หรือ None), Speed
                     _, plaza, lane, frame, speed = item
-                    db.log_tx(plaza, lane, frame, speed)
+                    
+                    # 1. ตรวจสอบก่อนว่ามีภาพส่งมาไหม
+                    if frame is not None:
+                        # 2. ถ้ามีภาพ ส่งไปให้ DB จัดการ โดยระบุประเภทด้วย
+                        db.log_tx(plaza, lane, frame, speed)
+                    else:
+                        # 3. ถ้าไม่มีภาพ (โหมดประหยัด RAM) ให้ส่งค่าว่าง หรือระบุว่าไม่ต้อง Save ภาพ
+                        db.log_tx(plaza, lane, None, speed)
+                    
                     processed += 1
                     
                 elif cmd == "STATUS":
