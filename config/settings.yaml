@@ -129,6 +129,7 @@ processing:
   dist_between_lines_m: 5.0
   save_edge_cases: true
   frame_skip: 0
+  send_images: False
   edge_conf_range:
   - 0.2
   - 0.4
