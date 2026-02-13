@@ -5,29 +5,9 @@ import multiprocessing as mp
 import signal
 import os
 import sys
-from logging.handlers import RotatingFileHandler
+from core.logging_config import setup_root_logging
 from core.agent_worker import CameraAgent
 from core.result_worker import ResultWorker
-
-def setup_root_logging(config):
-    """Setup Central Logging"""
-    log_dir = "logs"
-    if not os.path.exists(log_dir): os.makedirs(log_dir)
-    
-    log_path = config.get('system', {}).get('log_file', 'logs/system.log')
-    log_lvl = config.get('system', {}).get('log_level', 'INFO')
-    
-    formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(name)s: %(message)s')
-    
-    # File Handler
-    f_handler = RotatingFileHandler(log_path, maxBytes=10*1024*1024, backupCount=5)
-    f_handler.setFormatter(formatter)
-    
-    # Console Handler
-    c_handler = logging.StreamHandler()
-    c_handler.setFormatter(formatter)
-    
-    logging.basicConfig(level=getattr(logging, log_lvl), handlers=[c_handler, f_handler])
 
 def main():
     # Force Spawn method for compatibility (PyTorch/OpenCV)
@@ -44,7 +24,8 @@ def main():
         print(f"❌ Config Error: {e}")
         return
 
-    setup_root_logging(cfg)
+    log_level = getattr(logging, cfg.get('system', {}).get('log_level', 'INFO'))
+    setup_root_logging(log_dir="logs", log_level=log_level)
     logger = logging.getLogger("MainSupervisor")
     logger.info("==========================================")
     logger.info("=== 🚀 Starting AutoCounter System V5 ===")

@@ -7,6 +7,7 @@ import queue
 from datetime import datetime
 from ultralytics import YOLO
 from core.counter_logic import MultiLaneCounter
+from core.logging_config import setup_process_logging
 
 class CameraAgent(mp.Process):
     def __init__(self, cam_config, model_config, proc_config, result_queue, stop_event):
@@ -34,13 +35,8 @@ class CameraAgent(mp.Process):
             return frame
 
     def run(self):
-        # Config Logging Format ที่นี่ทีเดียว (มี Time และ Level แล้ว)
-        logging.basicConfig(
-            format='%(asctime)s [%(levelname)s] %(message)s',
-            level=logging.INFO,
-            datefmt='%Y-%m-%d %H:%M:%S'
-        )
-        logger = logging.getLogger(f"Agent-{self.cam_id}")
+        # Config Logging with centralized setup
+        logger = setup_process_logging(f"Agent-{self.cam_id}", log_dir="logs", log_level=logging.INFO)
 
         try:
             model = YOLO(self.model_cfg['path'])
