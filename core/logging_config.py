@@ -3,7 +3,7 @@ import os
 from logging.handlers import TimedRotatingFileHandler
 
 # Standard log format for all processes
-LOG_FORMAT = '%(asctime)s [%(levelname)8s] %(name)s: %(message)s'
+LOG_FORMAT = '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
 DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
 
 
