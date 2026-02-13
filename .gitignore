@@ -11,13 +11,11 @@ logs/
 # Runtime data
 snapshots/
 *.db
+*.db-shm
+*.db-wal
 
 # IDE
 .vscode/
 
 # OS
 .DS_Store
-data/
-
-*.db-shm
-*.db-wal
