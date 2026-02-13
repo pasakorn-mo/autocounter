@@ -8,6 +8,7 @@ from datetime import datetime
 from ultralytics import YOLO
 from core.counter_logic import MultiLaneCounter
 from core.logging_config import setup_process_logging
+from core.utils import save_edge_case_async
 
 class CameraAgent(mp.Process):
     def __init__(self, cam_config, model_config, proc_config, result_queue, stop_event):
@@ -127,6 +128,17 @@ class CameraAgent(mp.Process):
                     conf=self.model_cfg.get('conf', 0.4),
                 )
             t2 = time.time()
+            
+            # --- Edge Case Detection (Low Confidence Detections) ---
+            if self.proc_cfg.get('save_edge_cases', False):
+                edge_conf_range = self.proc_cfg.get('edge_conf_range', [0.2, 0.4])
+                if len(results) > 0 and hasattr(results[0], 'boxes'):
+                    confs = results[0].boxes.conf.cpu().numpy()
+                    for i, conf in enumerate(confs):
+                        if edge_conf_range[0] <= conf <= edge_conf_range[1]:
+                            cls_id = int(results[0].boxes.cls[i].cpu().numpy())
+                            save_edge_case_async(processed_frame, self.cam_id, conf, cls_id)
+            
             visual_events, count_events = counter.process(results)
             t3 = time.time()
 
