@@ -218,12 +218,12 @@ class CameraAgent(mp.Process):
                     qsize = self.result_queue.qsize()
                 except Exception:
                     qsize = -1
-                logger.info(
-                    "DBG Agent %s | fps=%.1f read=%.1fms infer=%.1fms logic=%.1fms draw=%.1fms q=%s drops=%d new_id/s=%.2f lost_id/s=%.2f",
-                    self.cam_id, fps, avg_read, avg_infer, avg_logic, avg_draw, qsize, stats["drops"],
-                    stats["new_ids"] / max(1.0, (now - stats["last_log"])),
-                    stats["lost_ids"] / max(1.0, (now - stats["last_log"]))
-                )
+                # logger.info(
+                #     "DBG Agent %s | fps=%.1f read=%.1fms infer=%.1fms logic=%.1fms draw=%.1fms q=%s drops=%d new_id/s=%.2f lost_id/s=%.2f",
+                #     self.cam_id, fps, avg_read, avg_infer, avg_logic, avg_draw, qsize, stats["drops"],
+                #     stats["new_ids"] / max(1.0, (now - stats["last_log"])),
+                #     stats["lost_ids"] / max(1.0, (now - stats["last_log"]))
+                # )
                 stats = {
                     "frames": 0,
                     "last_log": now,
