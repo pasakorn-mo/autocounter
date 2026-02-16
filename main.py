@@ -25,7 +25,7 @@ def main():
         return
 
     log_level = getattr(logging, cfg.get('system', {}).get('log_level', 'INFO'))
-    log_listener = setup_root_logging(log_dir="logs", log_level=log_level)
+    log_listener, log_queue = setup_root_logging(log_dir="logs", log_level=log_level)
     log_listener.start()  # Start the queue listener for child process logs
     logger = logging.getLogger("MainSupervisor")
     logger.info("==========================================")
@@ -37,7 +37,7 @@ def main():
     stop_event = ctx.Event()
 
     # 1. Start DB Worker (Consumer)
-    db_worker = ResultWorker(result_queue)
+    db_worker = ResultWorker(result_queue, log_queue=log_queue)
     db_worker.start()
     logger.info("✅ DB Worker Started")
 
@@ -47,7 +47,7 @@ def main():
     model_cfg['headless'] = cfg.get('system', {}).get('headless', False)
 
     for cam_cfg in cfg['cameras']:
-        p = CameraAgent(cam_cfg, model_cfg, cfg['processing'], result_queue, stop_event)
+        p = CameraAgent(cam_cfg, model_cfg, cfg['processing'], result_queue, stop_event, log_queue)
         p.start()
         agents.append(p)
         logger.info(f"✅ Launched Agent: {cam_cfg['id']}")

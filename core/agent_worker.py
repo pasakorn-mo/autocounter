@@ -7,17 +7,18 @@ import queue
 from datetime import datetime
 from ultralytics import YOLO
 from core.counter_logic import MultiLaneCounter
-from core.logging_config import setup_process_logging, _log_queue
+from core.logging_config import setup_process_logging
 from core.utils import save_edge_case_async
 
 class CameraAgent(mp.Process):
-    def __init__(self, cam_config, model_config, proc_config, result_queue, stop_event):
+    def __init__(self, cam_config, model_config, proc_config, result_queue, stop_event, log_queue=None):
         super().__init__()
         self.cfg = cam_config
         self.model_cfg = model_config
         self.proc_cfg = proc_config
         self.result_queue = result_queue
         self.stop_event = stop_event
+        self.log_queue = log_queue
         self.cam_id = cam_config['id']
 
     def apply_lighting_filters(self, frame):
@@ -36,8 +37,8 @@ class CameraAgent(mp.Process):
             return frame
 
     def run(self):
-        # Config Logging with centralized setup
-        logger = setup_process_logging(f"Agent-{self.cam_id}", log_queue=_log_queue)
+        # Config Logging with centralized setup (use queue from main)
+        logger = setup_process_logging(f"Agent-{self.cam_id}", log_queue=self.log_queue)
 
         try:
             model = YOLO(self.model_cfg['path'])
