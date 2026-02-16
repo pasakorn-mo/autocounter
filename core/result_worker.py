@@ -4,7 +4,7 @@ import traceback
 import queue
 import time
 from data.database import AutoCounterDB
-from core.logging_config import setup_process_logging
+from core.logging_config import setup_process_logging, _log_queue
 
 class ResultWorker(mp.Process):
     def __init__(self, result_queue):
@@ -21,7 +21,7 @@ class ResultWorker(mp.Process):
 
     def run(self):
         # Setup Logging inside Process
-        logger = setup_process_logging("ResultWorker", log_dir="logs", log_level=logging.INFO)
+        logger = setup_process_logging("ResultWorker", log_queue=_log_queue)
         db = AutoCounterDB()
         logger.info("✅ ResultWorker DB Connected.")
 

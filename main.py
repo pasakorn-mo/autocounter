@@ -25,7 +25,8 @@ def main():
         return
 
     log_level = getattr(logging, cfg.get('system', {}).get('log_level', 'INFO'))
-    setup_root_logging(log_dir="logs", log_level=log_level)
+    log_listener = setup_root_logging(log_dir="logs", log_level=log_level)
+    log_listener.start()  # Start the queue listener for child process logs
     logger = logging.getLogger("MainSupervisor")
     logger.info("==========================================")
     logger.info("=== 🚀 Starting AutoCounter System V5 ===")
@@ -90,6 +91,9 @@ def main():
         # Stop DB Worker
         db_worker.stop()
         db_worker.join()
+        
+        # Stop logging listener
+        log_listener.stop()
         
         logger.info("👋 System Shutdown Complete.")
 
