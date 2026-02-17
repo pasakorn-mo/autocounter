@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from data.database import AutoCounterDB
 
 # --- 1. ปรับแต่ง CSS ---
-st.set_page_config(page_title="AutoCounter V5", layout="wide")
+st.set_page_config(page_title="BEM AutoCounter V5", layout="wide")
 
 st.markdown("""
 <style>
@@ -43,13 +43,13 @@ with st.sidebar:
     st.divider()
     st.info("ส่วนสถานะและตารางวันนี้จะอัปเดตอัตโนมัติทุก 10 วินาที")
 
-st.title("🚗 AutoCounter Traffic System")
+st.title("🚗 BEM AutoCounter Traffic System")
 
 # --- 2. ส่วน Real-time (Fragment: รีเฟรชเฉพาะจุด ไม่จาง) ---
 @st.fragment(run_every=10)
 def render_live_updates(plaza_filter):
     # --- 2.1 Monitoring Status ---
-    st.subheader(f"🖥️ System Status: {plaza_filter}")
+    st.subheader(f"🖥️ สถานะระบบ: {plaza_filter}")
     all_stats = db.get_statuses()
     
     # Filter Stats
@@ -77,7 +77,8 @@ def render_live_updates(plaza_filter):
 
     # --- 2.2 Today's Details by Lane ---
     st.divider()
-    st.subheader("📍 Today's Traffic (By Lane)")
+    today_str = datetime.now().strftime('%d/%m/%Y')
+    st.subheader(f"📍ปริมาณจราจร รายช่องทาง {today_str}")
     raw_data = db.get_realtime_counts()
     if raw_data:
         df = pd.DataFrame(raw_data, columns=['Plaza', 'Lane', 'Count'])
@@ -85,10 +86,10 @@ def render_live_updates(plaza_filter):
             df = df[df['Plaza'].str.strip().str.upper() == plaza_filter.upper()]
         st.dataframe(df, width='stretch', hide_index=True)
     else:
-        st.info("No traffic data for today yet.")
+        st.info("ไม่มีข้อมูลบันทึกวันนี้")
 
     # --- 2.3 Hourly Traffic Volume (กลับมาแล้ว!) ---
-    st.subheader("⏱️ Hourly Traffic Volume (Today)")
+    st.subheader(f"⏱️ ปริมาณจราจร รายชั่วโมง {today_str}")
     h_data = db.get_hourly_counts()
     if h_data:
         dfh = pd.DataFrame(h_data, columns=['Plaza', 'Lane', 'Hour', 'Count'])

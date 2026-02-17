@@ -7,10 +7,11 @@ from data.database import AutoCounterDB
 from core.logging_config import setup_process_logging
 
 class ResultWorker(mp.Process):
-    def __init__(self, result_queue):
+    def __init__(self, result_queue, log_queue=None):
         super().__init__()
         self.result_queue = result_queue
         self.exit_event = mp.Event()
+        self.log_queue = log_queue
 
     def stop(self):
         self.exit_event.set()
@@ -21,7 +22,7 @@ class ResultWorker(mp.Process):
 
     def run(self):
         # Setup Logging inside Process
-        logger = setup_process_logging("ResultWorker", log_dir="logs", log_level=logging.INFO)
+        logger = setup_process_logging("ResultWorker", log_queue=self.log_queue)
         db = AutoCounterDB()
         logger.info("✅ ResultWorker DB Connected.")
 
