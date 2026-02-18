@@ -122,7 +122,7 @@ model:
   classes:
   - 0
   conf: 0.3
-  path: models/best26_trained_cp200img_cp150img_t00-10-193img_cpmtc201img.pt
+  path: models/best26_trained_cp200img_cp150img_t00-10-193img_cpmtc201img.engine
   show_boxes: true
   tracker: config/bytetrack_occlusion.yaml
 processing:
