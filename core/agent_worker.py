@@ -228,8 +228,7 @@ class CameraAgent(mp.Process):
                                     (0, 255, 255),
                                     2)
 
-                cv2.imshow(f"Agent: {self.cam_id}",
-                           cv2.resize(display, (640, 480)))
+                cv2.imshow(f"Agent: {self.cam_id}",display)
 
                 if cv2.waitKey(1) == ord('q'):
                     self.stop_event.set()
