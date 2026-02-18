@@ -42,7 +42,7 @@ def setup_process_logging(logger_name, log_queue=None, log_level=logging.INFO):
         logger.addHandler(ch)
     else:
         queue_handler = QueueHandler(log_queue)
-        queue_handler.setFormatter(logging.Formatter(LOG_FORMAT, datefmt=DATE_FORMAT))
+        # Don't format here—let QueueListener handle formatting
         logger.addHandler(queue_handler)
     
     return logger
